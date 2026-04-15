@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details — Sri Kumaran Xerox & Printers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand-logo">
+        <img src="img/logo2.jpeg" alt="Brand Logo">
+      </a>
+      <div class="nav-center">
+        <div class="nav-logo-text"><span>Sri Kumaran Xerox &</span><span class="nav-logo-line2">Printers</span></div>
+      </div>
+      <a href="index.html" class="nav-brand-logo nav-brand-right">
+        <img src="logo.jpeg" alt="Brand Logo">
+      </a>
+    </div>
+  </div>
+  <div class="nav-menu-bar">
+    <div class="container nav-menu-inner">
+      <div class="nav-menu-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout.html" class="nav-cart-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Cart
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.mobile-nav').classList.toggle('open'); this.classList.toggle('open');">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="checkout.html">Cart</a>
+  </div>
+
+<!-- ─── Marquee Strip ─── -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-icon">📦</span> Place Your Order Online <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🎨</span> Customise Your Prints <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📸</span> Send Your Photos via WhatsApp <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">✅</span> Get Orders Ready Same Day <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🖼️</span> Photo Frames &amp; Custom Gifts <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">😊</span> Thousands of Happy Customers <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🚀</span> Fast Turnaround — You Make, We Print <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📦</span> Place Your Order Online <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🎨</span> Customise Your Prints <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📸</span> Send Your Photos via WhatsApp <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">✅</span> Get Orders Ready Same Day <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🖼️</span> Photo Frames &amp; Custom Gifts <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">😊</span> Thousands of Happy Customers <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🚀</span> Fast Turnaround — You Make, We Print <span class="marquee-dot"></span></span>
+  </div>
+</div>
+</nav>
+
+<div class="page-content">
+
+  <div class="product-detail-section">
+    <div class="container">
+      
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="products.html">Services</a>
+        <span>›</span>
+        <span id="breadcrumb-category">Category</span>
+        <span>›</span>
+        <span id="breadcrumb-name">Product Name</span>
+      </div>
+
+      <div class="product-detail-grid">
+        
+        <div class="product-scroll-container">
+          <button class="scroll-btn scroll-btn-left" onclick="scrollImages(-1)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="scroll-btn scroll-btn-right" onclick="scrollImages(1)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <div class="product-scroll-track" id="scrollTrack">
+            <!-- Images loaded by JS from product data -->
+          </div>
+        </div>
+
+        <div class="product-detail-info">
+          
+          <h1 id="product-name">Product Name</h1>
+          
+          <div class="product-price-section">
+            <span id="product-price" class="product-current-price">₹0</span>
+            <span id="product-original" class="product-original-price">₹0</span>
+            <span id="product-discount" class="product-discount" style="display:none;">20% OFF</span>
+          </div>
+
+          <p id="product-desc" class="product-description">
+            Product description goes here.
+          </p>
+
+          <!-- Custom Options Section -->
+          <div id="custom-options-section" style="display:none;"></div>
+
+          <!-- Size/Type Options -->
+          <div class="product-options">
+            <label class="option-label">Select Size:</label>
+            <div id="size-options" class="size-options"></div>
+            <div id="selected-size-display" class="selected-display" style="display:none;">
+              <span>✓ Selected Size:</span> <strong id="selected-size-text"></strong>
+            </div>
+          </div>
+
+          <div class="quantity-section">
+            <label class="option-label" style="margin:0;">Quantity:</label>
+            <div class="quantity-selector">
+              <button class="qty-btn" onclick="updateQty(-1)">−</button>
+              <input type="text" class="qty-input" id="product-qty" value="1" readonly>
+              <button class="qty-btn" onclick="updateQty(1)">+</button>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary" onclick="buyNow()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Buy Now
+            </button>
+            <button class="btn btn-outline" onclick="addToCart()">Add to Cart</button>
+          </div>
+
+          <div class="product-features">
+            <div class="features-title">Service Details</div>
+            <div id="product-features"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Sri Kumaran Xerox</div>
+        <p>Professional printing services in Palani, Tamil Nadu. Quality prints, quick turnaround, competitive prices since 2012.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="products.html">All Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="products.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/916385938660" target="_blank">WhatsApp</a>
+        <a href="tel:+919994106435">+91 99941 06435</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Sri Kumaran Xerox & Printers. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Cart Button -->
+<div class="wa-float">
+  <span class="wa-float-label">View Cart</span>
+  <a href="checkout.html" class="wa-float-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  </a>
+</div>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</a>
+
+<style>
+  /* ── Product Gallery Layout ── */
+  .product-detail-image-gallery {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .product-scroll-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-scroll-track {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
+  .product-scroll-track::-webkit-scrollbar {
+    height: 6px;
+  }
+  .product-scroll-track::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  .product-scroll-track::-webkit-scrollbar-thumb {
+    background: #c9a96e;
+    border-radius: 10px;
+  }
+  .scroll-btn {
+    position: absolute;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: var(--dark);
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  .scroll-btn:hover {
+    background: var(--gold);
+    color: #fff;
+  }
+  .scroll-btn-left { left: calc(50% - 50px); }
+  .scroll-btn-right { right: calc(50% - 50px); }
+  .scroll-img {
+    min-width: calc(100% - 15px);
+    max-width: calc(100% - 15px);
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .scroll-img { height: 300px; }
+    .scroll-btn { width: 32px; height: 32px; }
+  }
+  .god-frame-img {
+    object-fit: contain !important;
+    background: #f5f5f5;
+  }
+</style>
+
+<script src="script.js"></script>
+<script>
+  let selectedProduct = null;
+  let selectedSize = '';
+  let selectedPrice = 0;
+  let currentQty = 1;
+
+  function getProductId() {
+    const params = new URLSearchParams(window.location.search);
+    return parseInt(params.get('id')) || 1;
+  }
+
+  function loadProduct() {
+    const productId = getProductId();
+    selectedProduct = PRODUCTS.find(p => p.id === productId);
+    
+    if (!selectedProduct) {
+      window.location.href = 'products.html';
+      return;
+    }
+
+    document.title = `${selectedProduct.name} — Sri Kumaran Xerox`;
+
+    document.getElementById('breadcrumb-category').textContent = selectedProduct.category;
+    document.getElementById('breadcrumb-name').textContent = selectedProduct.name;
+    document.getElementById('breadcrumb-category').href = `products.html?cat=${selectedProduct.category}`;
+
+    // Load images to scroll track
+    const scrollTrack = document.getElementById('scrollTrack');
+    const productImages = selectedProduct.images || [selectedProduct.image];
+    const isGodFrame = selectedProduct.id === 16;
+    const imgClass = isGodFrame ? 'scroll-img god-frame-img' : 'scroll-img';
+    scrollTrack.innerHTML = productImages.map((img, idx) => 
+      `<img class="${imgClass}" src="${img}" alt="${selectedProduct.name} - ${idx + 1}">`
+    ).join('');
+
+    // Update scroll buttons visibility
+    updateScrollButtons();
+
+    document.getElementById('product-name').textContent = selectedProduct.name;
+    document.getElementById('product-desc').textContent = selectedProduct.description;
+    
+    if (selectedProduct.sizePrices) {
+      document.querySelector('.product-price-section').style.display = 'none';
+    } else {
+      document.getElementById('product-price').textContent = formatPrice(selectedProduct.price);
+      if (selectedProduct.originalPrice) {
+        document.getElementById('product-original').textContent = formatPrice(selectedProduct.originalPrice);
+        document.getElementById('product-original').style.display = 'inline';
+        const discount = Math.round((1 - selectedProduct.price / selectedProduct.originalPrice) * 100);
+        document.getElementById('product-discount').textContent = `${discount}% OFF`;
+        document.getElementById('product-discount').style.display = 'inline-block';
+      } else {
+        document.getElementById('product-original').style.display = 'none';
+        document.getElementById('product-discount').style.display = 'none';
+      }
+    }
+
+    if (selectedProduct.badge) {
+      const badge = document.getElementById('product-badge');
+      badge.textContent = selectedProduct.badge;
+      badge.style.display = 'inline-block';
+      if (selectedProduct.badge === 'Sale') badge.classList.add('sale');
+    }
+
+    const sizeContainer = document.getElementById('size-options');
+    if (selectedProduct.sizes && selectedProduct.sizes.length > 0) {
+      selectedSize = selectedProduct.sizes[0];
+      selectedPrice = selectedProduct.sizePrices ? selectedProduct.sizePrices[selectedSize] : selectedProduct.price;
+      updatePriceDisplay();
+      sizeContainer.innerHTML = selectedProduct.sizes.map((size, idx) => {
+        const sizePrice = selectedProduct.sizePrices ? selectedProduct.sizePrices[size] : selectedProduct.price;
+        return `<button class="size-btn ${idx === 0 ? 'selected' : ''}" onclick="selectSize(this, '${size}')">${size} - ₹${sizePrice}</button>`;
+      }).join('');
+      const display = document.getElementById('selected-size-display');
+      const sizeText = document.getElementById('selected-size-text');
+      if (display && sizeText) {
+        display.style.display = 'block';
+        sizeText.textContent = `${selectedSize} - ₹${selectedPrice}`;
+      }
+    } else {
+      selectedSize = 'Standard';
+      selectedPrice = selectedProduct.price;
+      updatePriceDisplay();
+      sizeContainer.innerHTML = '<button class="size-btn selected">Standard</button>';
+    }
+
+    const featuresContainer = document.getElementById('product-features');
+    const details = selectedProduct.details || {};
+    let featuresHTML = '';
+    for (const [key, value] of Object.entries(details)) {
+      const icon = getFeatureIcon(key);
+      featuresHTML += `<div class="feature-item"><span class="feature-icon">${icon}</span><span class="feature-text"><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}</span></div>`;
+    }
+    featuresContainer.innerHTML = featuresHTML;
+
+    renderCustomOptions();
+  }
+
+  let customData = {};
+
+  function renderCustomOptions() {
+    const container = document.getElementById('custom-options-section');
+    if (!selectedProduct.customOptions) {
+      container.style.display = 'none';
+      return;
+    }
+
+    container.style.display = 'block';
+    container.innerHTML = `<div class="custom-options-section">
+      <div class="custom-options-title">📝 Customization Details</div>
+      
+      ${selectedProduct.customOptions.upload ? `
+        <div class="option-label">Your Image/Design:</div>
+        <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:8px;">📎</div>
+          <div style="color:var(--mid-grey);">Send your image via WhatsApp after ordering!</div>
+          <div style="font-size:0.8rem;color:var(--mid-grey);margin-top:8px;">Click 'Buy' → Fill details → Order → Send image to WhatsApp</div>
+        </div>
+      ` : ''}
+
+      ${selectedProduct.customOptions.placeholder ? `
+        <div class="option-label">${selectedProduct.customOptions.type === 'text' ? 'Enter Text for Stamp:' : 'Enter Details:'}</div>
+        <input type="text" class="custom-input" id="custom-text" placeholder="${selectedProduct.customOptions.placeholder}" oninput="customData.text = this.value">
+      ` : ''}
+
+      ${selectedProduct.customOptions.type === 'tshirt' || selectedProduct.customOptions.type === 'mug' ? `
+        <div class="option-label">Color:</div>
+        <div class="color-options" id="color-options">
+          <button class="color-btn selected" style="background:#fff" onclick="selectColor(this, 'White')" title="White"></button>
+          <button class="color-btn" style="background:#000" onclick="selectColor(this, 'Black')" title="Black"></button>
+          <button class="color-btn" style="background:#3498db" onclick="selectColor(this, 'Blue')" title="Blue"></button>
+          <button class="color-btn" style="background:#e74c3c" onclick="selectColor(this, 'Red')" title="Red"></button>
+          <button class="color-btn" style="background:#2ecc71" onclick="selectColor(this, 'Green')" title="Green"></button>
+          <button class="color-btn" style="background:#f39c12" onclick="selectColor(this, 'Yellow')" title="Yellow"></button>
+          <button class="color-btn" style="background:#9b59b6" onclick="selectColor(this, 'Purple')" title="Purple"></button>
+        </div>
+      ` : ''}
+
+      ${selectedProduct.customOptions.options ? `
+        <div class="option-label">Print Type:</div>
+        <div class="print-options" id="print-options">
+          ${selectedProduct.customOptions.options.map((opt, idx) => `
+            <label class="print-option ${idx === 0 ? 'selected' : ''}" onclick="selectPrintOption(this)">
+              <input type="radio" name="print-type" value="${opt}" ${idx === 0 ? 'checked' : ''}>
+              ${opt}
+            </label>
+          `).join('')}
+        </div>
+      ` : ''}
+
+      <div class="option-label">Additional Instructions:</div>
+      <textarea class="custom-textarea" id="custom-instructions" placeholder="Tell us how you want your design - placement, size, colors, any special requirements..." oninput="customData.instructions = this.value"></textarea>
+    </div>`;
+  }
+
+  function selectColor(btn, color) {
+    document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    customData.color = color;
+  }
+
+  function selectPrintOption(label) {
+    document.querySelectorAll('.print-option').forEach(b => b.classList.remove('selected'));
+    label.classList.add('selected');
+    customData.printType = label.querySelector('input').value;
+  }
+
+  function getCustomDataString() {
+    let str = '';
+    if (customData.color) str += `Color: ${customData.color}\n`;
+    if (customData.printType) str += `Print Type: ${customData.printType}\n`;
+    if (customData.text) str += `Text: ${customData.text}\n`;
+    if (customData.instructions) str += `Instructions: ${customData.instructions}`;
+    return str || 'No customizations';
+  }
+
+  function getFeatureIcon(key) {
+    const icons = {
+      'service': '🖨️', 'sizes': '📏', 'paper': '📄', 'turnaround': '⚡',
+      'minorder': '📦', 'styles': '🎨', 'includes': '✅', 'types': '🔧', 'print': '🖼️', 'material': '🧱', 'finish': '✨'
+    };
+    return icons[key.toLowerCase()] || '✓';
+  }
+
+  function selectSize(btn, size) {
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedSize = size;
+    selectedPrice = selectedProduct.sizePrices ? selectedProduct.sizePrices[size] : selectedProduct.price;
+    updatePriceDisplay();
+    const display = document.getElementById('selected-size-display');
+    const sizeText = document.getElementById('selected-size-text');
+    if (display && sizeText) {
+      display.style.display = 'block';
+      sizeText.textContent = `${size} - ₹${selectedPrice}`;
+    }
+  }
+
+  function updatePriceDisplay() {
+    const priceEl = document.getElementById('product-price');
+    const originalEl = document.getElementById('product-original');
+    const discountEl = document.getElementById('product-discount');
+    priceEl.textContent = formatPrice(selectedPrice);
+    if (selectedProduct.originalPrice) {
+      originalEl.textContent = formatPrice(selectedProduct.originalPrice);
+      originalEl.style.display = 'inline';
+      const discount = Math.round((1 - selectedPrice / selectedProduct.originalPrice) * 100);
+      discountEl.textContent = `${discount}% OFF`;
+      discountEl.style.display = 'inline-block';
+    }
+  }
+
+  function updateQty(change) {
+    currentQty = Math.max(1, currentQty + change);
+    document.getElementById('product-qty').value = currentQty;
+  }
+
+  let currentImageIndex = 0;
+  let productImages = [];
+
+  function scrollImages(direction) {
+    const scrollTrack = document.getElementById('scrollTrack');
+    const images = scrollTrack.querySelectorAll('.scroll-img');
+    if (images.length === 0) return;
+
+    currentImageIndex += direction;
+    if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+    if (currentImageIndex >= images.length) currentImageIndex = 0;
+
+    images[currentImageIndex].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    updateScrollButtons();
+  }
+
+  function updateScrollButtons() {
+    const leftBtn = document.querySelector('.scroll-btn-left');
+    const rightBtn = document.querySelector('.scroll-btn-right');
+    const scrollTrack = document.getElementById('scrollTrack');
+    const images = scrollTrack ? scrollTrack.querySelectorAll('.scroll-img') : [];
+    
+    if (leftBtn && rightBtn) {
+      leftBtn.style.display = images.length > 1 ? 'flex' : 'none';
+      rightBtn.style.display = images.length > 1 ? 'flex' : 'none';
+    }
+  }
+
+  function addToCart() {
+    if (!selectedProduct) return;
+    const customStr = selectedProduct.customOptions ? getCustomDataString() : null;
+    Cart.add(selectedProduct.id, currentQty, selectedSize, customStr, selectedPrice);
+    showToast('Added to cart!', '✅');
+  }
+
+  function buyNow() {
+    if (!selectedProduct) return;
+    Cart.clear();
+    const customStr = selectedProduct.customOptions ? getCustomDataString() : null;
+    Cart.add(selectedProduct.id, currentQty, selectedSize, customStr, selectedPrice);
+    window.location.href = 'checkout.html';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initNav();
+    loadProduct();
+  });
+</script>
+
+</body>
+</html>

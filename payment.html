@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment — Sri Kumaran Xerox & Printers</title>
+  <meta name="description" content="Complete your payment for Sri Kumaran Xerox & Printers order." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .payment-method {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .payment-method:hover {
+      border-color: var(--mid-grey);
+    }
+    .payment-method.selected {
+      border-color: var(--off-black);
+      background: var(--beige);
+    }
+    .payment-method-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .payment-method-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .payment-method-title {
+      font-weight: 500;
+      color: var(--off-black);
+    }
+    .payment-method-desc {
+      font-size: 0.85rem;
+      color: var(--mid-grey);
+    }
+    .payment-details {
+      display: none;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .payment-method.selected .payment-details {
+      display: block;
+    }
+    .upi-apps {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .upi-app {
+      padding: 12px 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .upi-app:hover {
+      border-color: var(--off-black);
+    }
+    .bank-details {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-top: 16px;
+    }
+    .bank-details-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .bank-details-row:last-child {
+      border-bottom: none;
+    }
+    .bank-label {
+      font-size: 0.85rem;
+      color: var(--mid-grey);
+    }
+    .bank-value {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .copy-btn {
+      background: var(--off-black);
+      color: var(--white);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 8px;
+      transition: all 0.2s ease;
+    }
+    .copy-btn:hover {
+      background: var(--accent);
+    }
+    .payment-note {
+      background: var(--beige);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .payment-note-title {
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .payment-note-text {
+      font-size: 0.85rem;
+      color: var(--mid-grey);
+    }
+    .order-review {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .order-review-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .order-review-item:last-child {
+      border-bottom: none;
+    }
+    .cod-verification {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand-logo">
+        <img src="logo.jpeg" alt="Brand Logo">
+      </a>
+      <div class="nav-center">
+        <div class="nav-logo-text"><span>Sri Kumaran Xerox &</span><span class="nav-logo-line2">Printers</span></div>
+      </div>
+      <a href="index.html" class="nav-brand-logo nav-brand-right">
+        <img src="logo.jpeg" alt="Brand Logo">
+      </a>
+    </div>
+  </div>
+  <div class="nav-menu-bar">
+    <div class="container nav-menu-inner">
+      <div class="nav-menu-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout.html" class="nav-cart-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Cart
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.mobile-nav').classList.toggle('open'); this.classList.toggle('open');">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="checkout.html">Cart</a>
+  </div>
+
+<!-- ─── Marquee Strip ─── -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-icon">📦</span> Place Your Order Online <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🎨</span> Customise Your Prints <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📸</span> Send Your Photos via WhatsApp <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">✅</span> Get Orders Ready Same Day <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🖼️</span> Photo Frames &amp; Custom Gifts <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">😊</span> Thousands of Happy Customers <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🚀</span> Fast Turnaround — You Make, We Print <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📦</span> Place Your Order Online <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🎨</span> Customise Your Prints <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📸</span> Send Your Photos via WhatsApp <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">✅</span> Get Orders Ready Same Day <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🖼️</span> Photo Frames &amp; Custom Gifts <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">😊</span> Thousands of Happy Customers <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🚀</span> Fast Turnaround — You Make, We Print <span class="marquee-dot"></span></span>
+  </div>
+</div>
+</nav>
+
+<div class="page-content">
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Sri Kumaran Xerox & Printers</span>
+      <h1>Payment</h1>
+      <p>Complete your payment to confirm your order.</p>
+    </div>
+  </div>
+
+  <!-- Payment Section -->
+  <div class="cart-section">
+    <div class="container">
+      <div class="cart-layout">
+
+        <!-- Payment Options -->
+        <div style="grid-column: 1 / -1;">
+          
+          <!-- Order Review -->
+          <div class="order-review">
+            <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:16px;">Order Summary</div>
+            <div id="order-review-items"></div>
+            <div class="order-review-item" style="border-top:2px solid var(--off-black);margin-top:12px;padding-top:16px;">
+              <strong>Total Amount</strong>
+              <strong id="order-total" style="font-size:1.2rem;">₹0</strong>
+            </div>
+          </div>
+
+          <!-- Customer Details -->
+          <div class="order-review" id="customer-details-section">
+            <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:16px;">Delivery Address</div>
+            <div id="customer-details-content"></div>
+          </div>
+
+          <!-- Payment Methods -->
+          <div style="margin-bottom:24px;">
+            <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:16px;">Select Payment Method</div>
+            <div class="payment-methods">
+              
+              <!-- UPI -->
+              <div class="payment-method selected" data-method="upi" onclick="selectPayment('upi')">
+                <div class="payment-method-header">
+                  <div class="payment-method-icon">📱</div>
+                  <div>
+                    <div class="payment-method-title">UPI Payment</div>
+                    <div class="payment-method-desc">Pay via GPay, PhonePe, Paytm, etc.</div>
+                  </div>
+                </div>
+                <div class="payment-details">
+                  <div class="bank-details">
+                    <div class="bank-details-row">
+                      <span class="bank-label">UPI ID</span>
+                      <span class="bank-value">srikumaranprinters@oksbi <button class="copy-btn" onclick="copyToClipboard('srikumaranprinters@oksbi')">Copy</button></span>
+                    </div>
+                    <div class="bank-details-row">
+                      <span class="bank-label">QR Code</span>
+                      <span class="bank-value">Scan QR at shop</span>
+                    </div>
+                  </div>
+                  <p style="font-size:0.8rem;color:var(--mid-grey);margin-top:12px;">After payment, send screenshot via WhatsApp for confirmation.</p>
+                </div>
+              </div>
+
+              <!-- Bank Transfer -->
+              <div class="payment-method" data-method="bank" onclick="selectPayment('bank')">
+                <div class="payment-method-header">
+                  <div class="payment-method-icon">🏦</div>
+                  <div>
+                    <div class="payment-method-title">Bank Transfer</div>
+                    <div class="payment-method-desc">Direct transfer to bank account</div>
+                  </div>
+                </div>
+                <div class="payment-details">
+                  <div class="bank-details">
+                    <div class="bank-details-row">
+                      <span class="bank-label">Bank Name</span>
+                      <span class="bank-value">State Bank of India</span>
+                    </div>
+                    <div class="bank-details-row">
+                      <span class="bank-label">Account Name</span>
+                      <span class="bank-value">Sri Kumaran Xerox</span>
+                    </div>
+                    <div class="bank-details-row">
+                      <span class="bank-label">Account No.</span>
+                      <span class="bank-value">1234567890 <button class="copy-btn" onclick="copyToClipboard('1234567890')">Copy</button></span>
+                    </div>
+                    <div class="bank-details-row">
+                      <span class="bank-label">IFSC Code</span>
+                      <span class="bank-value">SBIN0001234 <button class="copy-btn" onclick="copyToClipboard('SBIN0001234')">Copy</button></span>
+                    </div>
+                  </div>
+                  <p style="font-size:0.8rem;color:var(--mid-grey);margin-top:12px;">After transfer, share transaction ID via WhatsApp.</p>
+                </div>
+              </div>
+
+              <!-- Cash on Delivery -->
+              <div class="payment-method" data-method="cod" onclick="selectPayment('cod')">
+                <div class="payment-method-header">
+                  <div class="payment-method-icon">💵</div>
+                  <div>
+                    <div class="payment-method-title">Cash on Delivery</div>
+                    <div class="payment-method-desc">Pay when you collect</div>
+                  </div>
+                </div>
+                <div class="payment-details">
+                  <p style="font-size:0.85rem;color:var(--mid-grey);margin-bottom:16px;">Pay directly when you visit our shop to collect your order.</p>
+                  <div class="cod-verification">
+                    <div style="font-weight:500;margin-bottom:8px;">Order Verification</div>
+                    <p style="font-size:0.8rem;color:var(--mid-grey);">We'll send order confirmation via WhatsApp. Show this when collecting your order.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pay at Shop -->
+              <div class="payment-method" data-method="shop" onclick="selectPayment('shop')">
+                <div class="payment-method-header">
+                  <div class="payment-method-icon">🏪</div>
+                  <div>
+                    <div class="payment-method-title">Visit Shop</div>
+                    <div class="payment-method-desc">Pay at our physical store</div>
+                  </div>
+                </div>
+                <div class="payment-details">
+                  <p style="font-size:0.85rem;color:var(--mid-grey);margin-bottom:16px;">Visit our shop at Doctor Ponnusamy Complex, Palani. We'll help you with payment and order processing.</p>
+                  <a href="https://wa.me/916385938660?text=I%20want%20to%20visit%20the%20shop" target="_blank" class="btn btn-outline btn-sm">Get Directions</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Payment Note -->
+          <div class="payment-note">
+            <div class="payment-note-title">
+              <span>⚡</span> Important
+            </div>
+            <p class="payment-note-text">After making payment, please send payment confirmation via WhatsApp to +91 63859 38660. We'll verify and confirm your order within 2 hours.</p>
+          </div>
+
+          <!-- Confirm Button -->
+          <button class="btn btn-primary btn-full" onclick="confirmOrder()" id="confirm-btn" style="padding:18px;font-size:1rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            <span id="confirm-btn-text">Confirm Order via WhatsApp</span>
+          </button>
+
+          <div style="text-align:center;margin-top:16px;">
+            <a href="checkout.html" style="color:var(--mid-grey);font-size:0.85rem;">← Back to Checkout</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Sri Kumaran<span>Xerox</span></div>
+        <p>Professional printing services in Palani, Tamil Nadu. Quality prints, quick turnaround, competitive prices since 2012.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="products.html">All Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="products.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/916385938660" target="_blank">WhatsApp</a>
+        <a href="tel:+919994106435">+91 99941 06435</a>
+        <a href="/cdn-cgi/l/email-protection#304342595b455d5142515e4042595e445542430200010270575d51595c1e535f5d">Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Sri Kumaran Xerox & Printers. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+<script>
+  let selectedMethod = 'upi';
+  let customerData = null;
+
+  function selectPayment(method) {
+    selectedMethod = method;
+    document.querySelectorAll('.payment-method').forEach(el => {
+      el.classList.remove('selected');
+      if (el.dataset.method === method) {
+        el.classList.add('selected');
+      }
+    });
+    
+    const btnText = document.getElementById('confirm-btn-text');
+    if (method === 'upi' || method === 'bank') {
+      btnText.textContent = 'Confirm Order via WhatsApp';
+    } else if (method === 'cod') {
+      btnText.textContent = 'Confirm Order (COD)';
+    } else {
+      btnText.textContent = 'Confirm Order via WhatsApp';
+    }
+  }
+
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('Copied to clipboard!', '✓');
+    });
+  }
+
+  function renderOrderReview() {
+    const cart = Cart.get();
+    const container = document.getElementById('order-review-items');
+    
+    if (cart.length === 0) {
+      window.location.href = 'products.html';
+      return;
+    }
+
+    container.innerHTML = cart.map(item => `
+      <div class="order-review-item">
+        <div>
+          <div style="font-weight:500;">${item.name}</div>
+          <div style="font-size:0.85rem;color:var(--mid-grey);">${item.size || 'Standard'} × ${item.qty}</div>
+          ${item.customData && item.customData !== 'No customizations' ? `<div style="font-size:0.75rem;color:var(--mid-grey);margin-top:4px;font-style:italic;">${item.customData}</div>` : ''}
+        </div>
+        <div>${formatPrice(item.price * item.qty)}</div>
+      </div>
+    `).join('');
+
+    const subtotal = Cart.total();
+    const tax = Math.round(subtotal * 0.18);
+    const total = subtotal + tax;
+    document.getElementById('order-total').textContent = '₹' + total.toLocaleString('en-IN');
+  }
+
+  function renderCustomerDetails() {
+    const saved = localStorage.getItem('sk_customer');
+    if (saved) {
+      customerData = JSON.parse(saved);
+      document.getElementById('customer-details-content').innerHTML = `
+        <div style="font-weight:500;margin-bottom:4px;">${customerData.name}</div>
+        <div style="font-size:0.85rem;color:var(--mid-grey);">${customerData.address}, ${customerData.city} - ${customerData.pincode}</div>
+        <div style="font-size:0.85rem;color:var(--mid-grey);">📱 ${customerData.phone}</div>
+        ${customerData.note ? `<div style="font-size:0.8rem;color:var(--mid-grey);margin-top:8px;font-style:italic;">"${customerData.note}"</div>` : ''}
+        <a href="checkout.html" style="display:inline-block;margin-top:12px;font-size:0.8rem;color:var(--accent);">← Edit Address</a>
+      `;
+    } else {
+      document.getElementById('customer-details-section').style.display = 'none';
+    }
+  }
+
+  function confirmOrder() {
+    const cart = Cart.get();
+    if (cart.length === 0) {
+      showToast('Your cart is empty!', '⚠️');
+      return;
+    }
+
+    const subtotal = Cart.total();
+    const tax = Math.round(subtotal * 0.18);
+    const total = subtotal + tax;
+    let orderNum = '#SKX-' + String(Math.floor(100000 + Math.random() * 900000)).slice(-6);
+
+    let msg = `*🛍️ NEW ORDER - Sri Kumaran Xerox* 🖨️\n`;
+    msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    msg += `*Order No:* ${orderNum}\n`;
+    msg += `*Payment:* ${getPaymentMethodName()}\n`;
+    msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    
+    if (customerData) {
+      msg += `*👤 Customer Details:*\n`;
+      msg += `• *Name:* ${customerData.name}\n`;
+      msg += `• *Phone:* ${customerData.phone}\n`;
+      msg += `• *Address:* ${customerData.address}\n`;
+      msg += `• *City:* ${customerData.city} - ${customerData.pincode}\n`;
+      if (customerData.note) {
+        msg += `• *Note:* ${customerData.note}\n`;
+      }
+      msg += `\n`;
+    }
+    
+    msg += `*🛒 Order Details:*\n`;
+    msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    cart.forEach((item, index) => {
+      msg += `\n*${index + 1}. ${item.name}*\n`;
+      msg += `   📏 Size: ${item.size || 'Standard'}\n`;
+      msg += `   📦 Qty: ${item.qty}\n`;
+      msg += `   💵 Price: ₹${item.price * item.qty}\n`;
+      if (item.customData && item.customData !== 'No customizations') {
+        msg += `   📝 Details: ${item.customData}\n`;
+      }
+      if (item.image) {
+        msg += `   🖼️ Image: ${item.image}\n`;
+      }
+    });
+
+    msg += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    msg += `*💰 Price Summary:*\n`;
+    msg += `• Subtotal: ₹${subtotal}\n`;
+    msg += `• Tax (18% GST): ₹${tax}\n`;
+    msg += `• Shipping: FREE\n`;
+    msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    msg += `*💸 TOTAL TO PAY: ₹${total}*\n`;
+    msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+
+    msg += `\n*💳 Payment Method:* ${getPaymentMethodName()}\n`;
+    
+    if (selectedMethod === 'upi') {
+      msg += `\n📱 *UPI Payment:*\n`;
+      msg += `Please pay ₹${total} to UPI ID: srikumaranprinters@oksbi\n`;
+      msg += `After payment, share screenshot here.\n`;
+    } else if (selectedMethod === 'bank') {
+      msg += `\n🏦 *Bank Transfer:*\n`;
+      msg += `A/C Name: Sri Kumaran Xerox\n`;
+      msg += `A/C No.: 1234567890\n`;
+      msg += `Bank: State Bank of India\n`;
+      msg += `IFSC: SBIN0001234\n`;
+      msg += `After transfer, share transaction ID.\n`;
+    } else if (selectedMethod === 'cod') {
+      msg += `\n💵 *Cash on Delivery*\n`;
+      msg += `Pay ₹${total} when you receive your order.\n`;
+    } else {
+      msg += `\n🏪 *Visit Shop*\n`;
+      msg += `Doctor Ponnusamy Complex, Palani\n`;
+    }
+
+    msg += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    msg += `*📸 Product Images:*\n`;
+    cart.forEach((item, index) => {
+      if (item.image) {
+        msg += `${index + 1}. ${item.name}: ${item.image}\n`;
+      }
+    });
+    
+    msg += `\n*Please confirm my order. Thank you! 🙏*`;
+
+    localStorage.removeItem('sk_cart');
+    localStorage.removeItem('sk_customer');
+
+    window.location.href = `https://wa.me/916385938660?text=${encodeURIComponent(msg)}`;
+
+    setTimeout(() => {
+      window.location.href = 'order-confirmation.html';
+    }, 2000);
+  }
+
+  function getPaymentMethodName() {
+    const methods = {
+      'upi': 'UPI Payment',
+      'bank': 'Bank Transfer',
+      'cod': 'Cash on Delivery',
+      'shop': 'Visit Shop'
+    };
+    
+    return methods[selectedMethod] || 'Not Selected';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initNav();
+    renderOrderReview();
+    renderCustomerDetails();
+  });
+</script>
+
+</body>
+</html>

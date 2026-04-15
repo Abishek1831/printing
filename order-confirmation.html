@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed — Sri Kumaran Xerox & Printers</title>
+  <meta name="description" content="Your order has been confirmed at Sri Kumaran Xerox & Printers." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .confirmation-success {
+      text-align: center;
+      padding: 48px 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 32px;
+    }
+    .confirmation-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #4CAF50, #45a049);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2.5rem;
+    }
+    .confirmation-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--off-black);
+      margin-bottom: 12px;
+    }
+    .confirmation-subtitle {
+      color: var(--mid-grey);
+      font-size: 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .order-number {
+      display: inline-block;
+      background: var(--beige);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+    .next-steps {
+      background: var(--beige);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .next-steps-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .step-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .step-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-content strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .step-content p {
+      font-size: 0.85rem;
+      color: var(--mid-grey);
+    }
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+    }
+    .contact-card-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+    .contact-options {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand-logo">
+        <img src="logo.jpeg" alt="Brand Logo">
+      </a>
+      <div class="nav-center">
+        <div class="nav-logo-text"><span>Sri Kumaran Xerox &</span><span class="nav-logo-line2">Printers</span></div>
+      </div>
+      <a href="index.html" class="nav-brand-logo nav-brand-right">
+        <img src="logo.jpeg" alt="Brand Logo">
+      </a>
+    </div>
+  </div>
+  <div class="nav-menu-bar">
+    <div class="container nav-menu-inner">
+      <div class="nav-menu-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout.html" class="nav-cart-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Cart
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.mobile-nav').classList.toggle('open'); this.classList.toggle('open');">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="checkout.html">Cart</a>
+  </div>
+
+<!-- ─── Marquee Strip ─── -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-icon">📦</span> Place Your Order Online <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🎨</span> Customise Your Prints <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📸</span> Send Your Photos via WhatsApp <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">✅</span> Get Orders Ready Same Day <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🖼️</span> Photo Frames &amp; Custom Gifts <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">😊</span> Thousands of Happy Customers <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🚀</span> Fast Turnaround — You Make, We Print <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📦</span> Place Your Order Online <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🎨</span> Customise Your Prints <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">📸</span> Send Your Photos via WhatsApp <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">✅</span> Get Orders Ready Same Day <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🖼️</span> Photo Frames &amp; Custom Gifts <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">😊</span> Thousands of Happy Customers <span class="marquee-dot"></span></span>
+    <span class="marquee-item"><span class="marquee-icon">🚀</span> Fast Turnaround — You Make, We Print <span class="marquee-dot"></span></span>
+  </div>
+</div>
+</nav>
+
+<div class="page-content">
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Sri Kumaran Xerox & Printers</span>
+      <h1>Order Confirmed</h1>
+      <p>Thank you for your order!</p>
+    </div>
+  </div>
+
+  <!-- Confirmation Section -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      
+      <div class="confirmation-success">
+        <div class="confirmation-icon">✓</div>
+        <div class="confirmation-title">Order Placed Successfully!</div>
+        <p class="confirmation-subtitle">We've received your order and will process it shortly. You'll receive a confirmation via WhatsApp.</p>
+        <div class="order-number">Order ID: SKX-${generateOrderId()}</div>
+      </div>
+
+      <div class="next-steps">
+        <div class="next-steps-title">What happens next?</div>
+        
+        <div class="step-item">
+          <div class="step-icon">📱</div>
+          <div class="step-content">
+            <strong>Order Confirmation</strong>
+            <p>We'll send you a WhatsApp message confirming your order within 2 hours.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-icon">⚙️</div>
+          <div class="step-content">
+            <strong>Processing</strong>
+            <p>Once confirmed, we'll start working on your order immediately.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-icon">📦</div>
+          <div class="step-content">
+            <strong>Ready for Pickup</strong>
+            <p>We'll notify you when your order is ready. You can collect from our shop or opt for delivery.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-icon">✅</div>
+          <div class="step-content">
+            <strong>Delivery / Pickup</strong>
+            <p>Collect your prints from our shop or get them delivered to your address.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-title">Need help with your order?</div>
+        <div class="contact-options">
+          <a href="https://wa.me/916385938660" target="_blank" class="btn btn-whatsapp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <a href="tel:+919994106435" class="btn btn-outline">Call Us</a>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+        <a href="products.html" class="btn btn-outline" style="margin-left:12px;">Order More</a>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Sri Kumaran<span>Xerox</span></div>
+        <p>Professional printing services in Palani, Tamil Nadu. Quality prints, quick turnaround, competitive prices since 2012.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="products.html">All Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="products.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/916385938660" target="_blank">WhatsApp</a>
+        <a href="tel:+919994106435">+91 99941 06435</a>
+        <a href="/cdn-cgi/l/email-protection#5625243f3d233b3724373826243f38223324256466676416313b373f3a7835393b">Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Sri Kumaran Xerox & Printers. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+<script>
+  function generateOrderId() {
+    const timestamp = Date.now().toString().slice(-6);
+    const random = Math.floor(Math.random() * 1000).toString()
+ 
+    return `${timestamp}${random}`;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initNav();
+  });
+</script>
+
+</body>
+</html>

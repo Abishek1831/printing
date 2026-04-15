@@ -1,0 +1,44 @@
+# Marquee Tag Fix - Prompt for Claude
+
+Copy and paste this in a new Claude conversation:
+
+---
+
+## Problem
+I have a fixed navbar (height ~160px) and I want to add a scrolling marquee tag RIGHT AFTER it. The marquee shows in mobile but is hidden behind the navbar in desktop mode.
+
+## Current Code
+
+### HTML (index.html):
+```html
+<nav class="nav" style="position: fixed; top: 0; z-index: 1000;">
+  <!-- navbar content here -->
+</nav>
+
+<div class="marquee-wrapper">
+  <div class="marquee-content" id="marqueeScroll">
+    <span>📦 ORDER NOW</span>
+    <span>📸 SEND PHOTOS</span>
+    <span>🎨 CUSTOMISE HAPPY</span>
+    <!-- more spans -->
+  </div>
+</div>
+```
+
+### CSS:
+```css
+.marquee-wrapper {
+  background: #c9a96e;
+  overflow: hidden;
+  padding: 12px 0;
+  margin-top: 160px; /* already tried this */
+}
+```
+
+## Issue
+- `margin-top` doesn't work in desktop
+- Mobile works fine
+- The marquee is hidden behind the fixed navbar
+
+## What I Need
+A working solution to make the marquee visible below the fixed navbar in BOTH mobile and desktop. The marquee should scroll right-to-left continuously.
